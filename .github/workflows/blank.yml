@@ -1,4 +1,8 @@
+# This is a basic workflow to help you get started with Actions
+
 name: Metrics
+
+# Controls when the workflow will run
 on:
   # Schedule daily updates
   schedule: [{cron: "0 0 * * *"}]
@@ -13,7 +17,7 @@ jobs:
       - uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.METRICS_TOKEN }}
-          filename: github-metrics.svg
-          base: ""
+          base: header, repositories
+          plugin_lines: yes
           plugin_isocalendar: yes
           plugin_isocalendar_duration: full-year
